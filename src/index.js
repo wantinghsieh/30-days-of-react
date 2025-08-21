@@ -1,71 +1,33 @@
-// index.js
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import asabenehImage from './images/asabeneh.jpg'
 
-// Header Component
-const Header = () => (
-  <header>
-    <div className='header-wrapper'>
-      <h1>Welcome to 30 Days Of React</h1>
-      <h2>Getting Started React</h2>
-      <h3>JavaScript Library</h3>
-      <p>Asabeneh Yetayeh</p>
-      <small>Oct 3, 2020</small>
-    </div>
-  </header>
-)
 
-// User Card Component
-const UserCard = () => (
-  <div className='user-card'>
-    <img src={asabenehImage} alt='asabeneh image' />
-    <h2>Asabeneh Yetayeh</h2>
-  </div>
-)
+const welcome = 'Welcome to 30 Days Of React'
+const title = 'Getting Started React'
+const subtitle = 'JavaScript Library'
+const firstName = 'Asabeneh'
+const lastName = 'Yetayeh'
+const date = 'Oct 3, 2020'
 
-// TechList Component
-const TechList = () => {
-  const techs = ['HTML', 'CSS', 'JavaScript']
-  const techsFormatted = techs.map((tech) => <li key={tech}>{tech}</li>)
-  return techsFormatted
+// JSX element, header
+const Header = () => {
+  return (
+    <header>
+      <div className='header-wrapper'>
+        <h1>{welcome}</h1>
+        <h2>{title}</h2>
+        <h3>{subtitle}</h3>
+        <p>
+          Instructor: {firstName} {lastName}
+        </p>
+        <small>Date: {date}</small>
+      </div>
+    </header>
+  )
 }
-
-// Main Component
-const Main = () => (
-  <main>
-    <div className='main-wrapper'>
-      <p>Prerequisite to get started react.js:</p>
-      <ul>
-        <TechList />
-      </ul>
-      <UserCard />
-    </div>
-  </main>
-)
-
-// Footer Component
-const Footer = () => (
-  <footer>
-    <div className='footer-wrapper'>
-      <p>Copyright 2020</p>
-    </div>
-  </footer>
-)
-
-// The App, or the parent or the container component
-const App = () => (
-  <div className='app'>
-    <Header />
-    <Main />
-    <Footer />
-  </div>
-)
-
 const rootElement = document.getElementById('root')
-
 // create a root
 const root = ReactDOM.createRoot(rootElement)
 
 // render the JSX
-root.render(<App />)
+root.render(<Header />)

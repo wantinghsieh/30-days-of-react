@@ -3,29 +3,24 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 
-const title = <h1>SUBSCRIBE</h1>
-const subTitle = <p>sign up with email to receive new and updates. </p>
-const firstname = <button>first name</button>;
-const lastname = <button>last name</button>;
-const email = <button>email</button>;
-const subscribe = <button>Subscribe</button>;
-const app = (
-  <div>
-    {title}
-    {subTitle}
-    <div style={{ display: "flex", gap: "10px" }}>
-    {firstname}
-    {lastname}
-    {email}
+// Header Component
+const Header = () => (
+  <header>
+    <div className='header-wrapper'>
+      <h1>Welcome to 30 Days Of React</h1>
+      <h2>Getting Started React</h2>
+      <h3>JavaScript Library</h3>
+      <p>Asabeneh Yetayeh</p>
+      <small>Oct 3, 2020</small>
     </div>
-    {subscribe}
-  </div>
+  </header>
 )
 
-
 const rootElement = document.getElementById('root')
+
 // create a root
 const root = ReactDOM.createRoot(rootElement)
 
 // render the JSX
-root.render(app)
+
+root.render(<Header />)

@@ -1,7 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-const Skills = (props) => <ul>{props.skills}</ul>
+// Skills Component
+const Skills = (props) => {
+  // modifying the skills array
+  const skillList = props.skills.map((skill) => <li>{skill}</li>)
+  return <ul>{skillList}</ul>
+}
 
 const App = () => (
   <div className='app'>

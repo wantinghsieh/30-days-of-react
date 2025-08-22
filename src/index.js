@@ -1,29 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-const welcome = 'Welcome to 30 Days Of React'
-const title = 'Getting Started React'
-const subtitle = 'JavaScript Library'
-const author = {
-  firstName: 'Asabeneh',
-  lastName: 'Yetayeh',
-}
-const date = 'Oct 4, 2020'
-
-
 // Header Component
 const Header = (props) => {
-  console.log(props) // empty object, {}
+  console.log(props) // {welcome:'Welcome to 30 Days Of React'}
   return (
     <header>
       <div className='header-wrapper'>
-        <h1>{welcome}</h1>
-        <h2>{title}</h2>
-        <h3>{subtitle}</h3>
-        <p>
-          {author.firstName} {author.lastName}
-        </p>
-        <small>{date}</small>
+        <h1>{props.welcome}</h1>
       </div>
     </header>
   )
@@ -34,12 +18,13 @@ const Header = (props) => {
 const App = () => {
   return (
     <div className='app'>
-      <Header />
+      <Header welcome='Welcome to 30 Days Of React' />
     </div>
   )
 }
 
 const rootElement = document.getElementById('root')
+
 
 // create a root
 const root = ReactDOM.createRoot(rootElement)

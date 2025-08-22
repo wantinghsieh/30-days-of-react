@@ -1,7 +1,6 @@
 // index.js
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-
 class App extends React.Component {
   // declaring state
   state = {
@@ -13,12 +12,14 @@ class App extends React.Component {
     return (
       <div className='App'>
         <h1>{count} </h1>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Add One
+        </button>
       </div>
     )
   }
 }
 const rootElement = document.getElementById('root')
-
 // create a root
 const root = ReactDOM.createRoot(rootElement)
 

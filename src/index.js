@@ -53,6 +53,10 @@ const App = (props) => {
       css: false,
       javascript: false,
     },
+    touched: {
+      firstName: false,
+      lastName: false,
+    },
   }
   const [formData, setFormData] = useState(initialState)
 
@@ -130,6 +134,24 @@ const App = (props) => {
      */
     console.log(data)
   }
+  const onBlur = (e) => {
+    const { name } = e.target
+    setFormData({ ...formData, touched: { ...formData.touched, [name]: true } })
+  }
+  const validate = () => {
+    // Object to collect error feedback and to display on the form
+    const errors = {
+      firstName: '',
+    }
+
+    if (
+      (formData.touched.firstName && formData.firstName.length < 3) ||
+      (formData.touched.firstName && formData.firstName.length > 12)
+    ) {
+      errors.firstName = 'First name must be between 2 and 12'
+    }
+    return errors
+  }
 
   // accessing the state value by destrutcturing the state
   const {
@@ -145,6 +167,9 @@ const App = (props) => {
     gender,
     bio,
   } = formData
+
+  const errors = validate()
+
   return (
     <div className='App'>
       <h3>Add Student</h3>
@@ -158,8 +183,11 @@ const App = (props) => {
               name='firstName'
               value={firstName}
               onChange={onChange}
+              onBlur={onBlur}
               placeholder='First Name'
             />
+            <br />
+            {errors.firstName && <small>{errors.firstName}</small>}
           </div>
           <div className='form-group'>
             <label htmlFor='lastName'>Last Name </label>
